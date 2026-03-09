@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: var(--primary-bg);
+  color: white;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-bg: #09090b;
+  --secondary-bg: #141319;
+  --tertiary-bg: #17171c;
+}
+
+.sp-text {
+  background-image: conic-gradient(at top, #818cf8, #6366f1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "Manrope", sans-serif;
+}
+
+.icon {
+  padding: 15px;
+  font-size: 20px;
+  border: 1px solid rgb(34, 33, 33);
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--secondary-bg);
+}
