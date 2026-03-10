@@ -62,7 +62,7 @@ const Home = () => {
 
       const data = await res.json();
 
-      // ⭐ IMPORTANT: check response status
+      // check response status
       if (!res.ok) {
         if (res.status === 429) {
           toast.error("Daily limit reached. Try again tomorrow.");
@@ -118,7 +118,7 @@ const Home = () => {
 
       if (!res.ok) {
         if (res.status === 429) {
-          toast.error("🚫 Daily AI limit reached");
+          toast.error("Daily AI limit reached");
         } else {
           toast.error(data.error || "Improvement failed");
         }
@@ -194,22 +194,18 @@ const Home = () => {
     <>
       <NavBar />
 
-      <div className="flex items-center px-[100px] gap-2 justify-between">
+      <div className="flex flex-col lg:flex-row px-4 lg:px-[100px] gap-4">
+        {" "}
         {/* LEFT PANEL */}
-
-        <div className="left w-[50%] h-[85vh] bg-[#141319] mt-5 px-[20px] rounded-xl flex flex-col">
+        <div className="left w-full lg:w-1/2 h-[85vh] bg-[#141319] mt-5 px-[20px] rounded-xl flex flex-col overflow-y-auto">
+          {" "}
           <h3 className="text-[28px] font-bold tracking-tight mt-2">
             AI Website Generator
           </h3>
-
           <p className="text-gray-400 mt-2">
             Let AI code a website and show you how it looks!
           </p>
-
           <p className="mt-4 font-semibold">Framework</p>
-
-          {/* Dark Theme Select */}
-
           <Select
             options={options}
             value={framework}
@@ -238,18 +234,14 @@ const Home = () => {
               }),
             }}
           />
-
           <p className="mt-5 font-semibold">Describe your website idea</p>
-
           <textarea
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className="w-full min-h-[200px] bg-[#111827] mt-3 p-[10px] rounded-xl"
             placeholder="Example: Create a SaaS landing page with navbar, hero section, features and pricing cards"
           />
-
           {/* Example Prompts */}
-
           <div className="flex flex-wrap gap-2 mt-3">
             {examplePrompts.map((item, index) => (
               <button
@@ -262,10 +254,9 @@ const Home = () => {
               </button>
             ))}
           </div>
-
           {/* Generate Button */}
-
-          <div className="flex justify-end mt-4">
+          <div className="flex justify-end mt-4 mb-2 flex-wrap">
+            {" "}
             <button
               title="Generate website with AI"
               onClick={getResponse}
@@ -280,10 +271,9 @@ const Home = () => {
             </button>
           </div>
         </div>
-
         {/* RIGHT PANEL */}
-
-        <div className="right w-[50%] h-[85vh] bg-[#141319] mt-5 px-[20px] rounded-xl relative">
+        <div className="right w-full lg:w-1/2 h-[85vh] bg-[#141319] mt-5 px-[20px] rounded-xl relative">
+          {" "}
           {loading && (
             <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center z-50 rounded-xl">
               <ClipLoader size={45} color="#6366f1" />
@@ -292,7 +282,6 @@ const Home = () => {
               </p>
             </div>
           )}
-
           {!outputScreen ? (
             <div className="h-full flex flex-col items-center justify-center text-gray-400">
               <div className="text-3xl mb-3">

@@ -54,8 +54,7 @@ Return ONLY the code inside a single HTML file.
 `,
     });
 
-    // ✅ await the response text
-    const responseText = await response.text();
+    const responseText = response.text;
 
     res.json({ text: responseText });
   } catch (error) {
@@ -97,8 +96,7 @@ ${code}
 `,
     });
 
-    // ✅ await the response text
-    const responseText = await response.text();
+    const responseText = response.text;
 
     res.json({ text: responseText });
   } catch (error) {
